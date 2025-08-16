@@ -4,54 +4,50 @@ import '../../assets/styles/Header.scss';
 import logo from '../../assets/images/logo.png';
 
 const Header = () => {
-  const [darkMode, setDarkMode] = useState(() => {
-    return localStorage.getItem('darkMode') === 'true';
-  });
+  const [darkMode, setDarkMode] = useState(() => localStorage.getItem('darkMode') === 'true');
+  const [menuOpen, setMenuOpen] = useState(false);
+  const token = localStorage.getItem('token');
 
   useEffect(() => {
-    if (darkMode) {
-      document.body.classList.add('dark-mode');
-    } else {
-      document.body.classList.remove('dark-mode');
-    }
+    document.body.classList.toggle('dark-mode', darkMode);
     localStorage.setItem('darkMode', darkMode);
   }, [darkMode]);
 
-  const toggleDarkMode = () => {
-    setDarkMode(prev => !prev);
-  };
-  const token = localStorage.getItem('token');
-
-  {token && (
-  <li><Link to="/add-post">Agregar Post</Link></li>
-)}
-
+  const toggleDarkMode = () => setDarkMode(prev => !prev);
+  const toggleMenu = () => setMenuOpen(prev => !prev);
 
   return (
     <header className="header">
       <nav className="nav-container">
+        <img src={logo} alt="Rediam Network Logo" className="logo" />
+
         <ul className="nav-list">
-           <img src={logo} alt="Rediam Network Logo" className="logo" />
-          <li><Link to="/register">📝 Register</Link></li>
-          <li><Link to="/login">🔐 Login</Link></li>
           <li><Link to="/home">🏠 Home</Link></li>
-          <li className="dropdown">
-            <span>📰 Posts</span>
-            <ul className="dropdown-content">
-              <li><Link to="/posts">Todos los Posts</Link></li>
-              <li><Link to="/add-post">Agregar Post</Link></li> 
-            </ul>
-       </li>
-          <li><Link to="/profile">👤 Mi Perfil</Link></li>
+          <li><Link to="/login">🔐 Login</Link></li>
           <li>
-            <button onClick={toggleDarkMode} className="mode-toggle-btn">
-              {darkMode ? '🌞 Claro' : '🌙 Oscuro'}
-            </button>
-          </li>
+              <button onClick={toggleDarkMode} className="mode-toggle-btn">
+                {darkMode ? '🌞 Claro' : '🌙 Oscuro'}
+              </button>
+            </li>
         </ul>
+
+        <button className="hamburger-btn" onClick={toggleMenu}>
+          ☰
+        </button>
+
+        {menuOpen && (
+          <ul className="dropdown-menu">
+            <li><Link to="/register">📝 Register</Link></li>
+            <li><Link to="/posts">📰 Todos los Posts</Link></li>
+            <li><Link to="/add-post">➕ Agregar Post</Link></li>
+            <li><Link to="/profile">👤 Mi Perfil</Link></li>
+            
+          </ul>
+        )}
       </nav>
     </header>
   );
 };
 
 export default Header;
+

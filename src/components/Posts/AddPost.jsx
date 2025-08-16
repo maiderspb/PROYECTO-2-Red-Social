@@ -39,7 +39,8 @@ await dispatch(addPost({
   title: data.title,
   content: data.content,
   authorId: user.id || user._id,
-  authorName: user.name || user.username
+ authorName: user.username
+ 
 })).unwrap();
 
       navigate('/posts');
@@ -66,3 +67,6 @@ await dispatch(addPost({
 };
 
 export default AddPost;
+
+
+

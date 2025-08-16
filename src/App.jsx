@@ -10,6 +10,8 @@ import Posts from './components/Posts/Posts.jsx';
 import AddPost from './components/Posts/AddPost.jsx';
 import PostDetail from './components/Posts/PostDetail.jsx';
 import Profile from './components/Profile/profile.jsx';
+import EditPost from "./components/Posts/EditPost.jsx"; 
+import EditComment from './components/Comments/EditComment.jsx';
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -40,6 +42,8 @@ function App() {
            <Route path="/add-post" element={<AddPost />} />
           <Route path="/post-detail/:postId" element={<PostDetail />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/edit-post/:postId" element={<EditPost />} />
+          <Route path="/edit-comment/:id" element={<EditComment />} />
         </Routes>
       </BrowserRouter>
            <Footer />
@@ -49,4 +53,5 @@ function App() {
 }
 
 export default App;
+
 

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchPostById } from '../../redux/post/postSlice.js';
 import '../../assets/styles/PostDetail.scss';
 import AddComment from '../Comments/AddComment.jsx';
+import { likeComment } from '../../redux/post/postSlice';
 
 const PostDetail = () => {
   const { postId } = useParams();
@@ -13,29 +14,33 @@ const PostDetail = () => {
     dispatch(fetchPostById(postId));
   }, [dispatch, postId]);
 
+  
+
   const { currentPost, loading, error } = useSelector(state => state.posts);
 
   if (loading) return <p>Cargando post...</p>;
   if (error) return <p>Error: {error}</p>;
   if (!currentPost) return <p>No se encontró el post.</p>;
 
+  const handleLike = (commentId) => {
+  dispatch(likeComment({ postId, commentId }));
+};
 return (
   <div className="post-detail">
     <h2>{currentPost.title}</h2>
     <p>{currentPost.content}</p>
 
-    {currentPost.comments && currentPost.comments.length > 0 && (
-      <div className="comments-section">
-        <h3>Comentarios</h3>
-        <ul>
-          {currentPost.comments.map(comment => (
-            <li key={comment._id}>
-              <b>{comment.author?.username || 'Anónimo'}:</b> {comment.text}
-            </li>
-          ))}
-        </ul>
-      </div>
-    )}
+{currentPost.comments.map(comment => (
+  <li key={comment._id}>
+    <div><i><b>Autor:</b> {comment.user?.username || 'Anónimo'}</i></div>
+    <div>{comment.text}</div>
+    <div className="comment-actions">
+   <button onClick={() => handleLike(comment._id)}>
+  ❤️ Like ({comment.likes ?? 0})
+</button>
+    </div>
+  </li>
+))}
     <AddComment postId={postId} />
   </div>
 );

@@ -37,3 +37,4 @@ const AddComment = ({ postId }) => {
 };
 
 export default AddComment;
+

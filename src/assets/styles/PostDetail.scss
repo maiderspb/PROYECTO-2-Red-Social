@@ -7,6 +7,24 @@
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   color: var(--text-primary, #333);
 
+    & li {
+    list-style: none;
+  }
+
+  .comment-actions {
+  margin-top: 5px;
+  list-style:none;
+
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: red;
+    font-size: 0.9rem;
+  }
+}
+
+
   h2 {
     margin-bottom: 1rem;
     font-size: 2rem;

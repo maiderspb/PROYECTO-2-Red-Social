@@ -18,3 +18,4 @@ export const updateProfile = ({ username, email, profilePicture }) => async (dis
     console.error('Error actualizando perfil:', error);
   }
 };
+
