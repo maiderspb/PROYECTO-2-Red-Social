@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchPosts } from '../../redux/post/postSlice.js';
+import { fetchPosts } from '../../redux/post/thunks/fetchPosts.js';
 import PostCard from './PostCard.jsx';
 
 const Posts = () => {
   const dispatch = useDispatch();
-  const posts = useSelector((state) => state.posts.all);
+const posts = useSelector((state) => state.posts.posts);
 
   useEffect(() => {
     dispatch(fetchPosts());

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import '../../assets/styles/EditPost.scss';
+import "../../assets/styles/EditPost.scss";
 
 const EditPost = () => {
   const navigate = useNavigate();
@@ -29,14 +29,17 @@ const EditPost = () => {
       return;
     }
 
-    try {
+    const formData = new FormData();
+formData.append("title", title);
+formData.append("content", content);
+try { 
+
       const res = await fetch(`/api/posts/${editingPost._id}`, {
         method: "PUT",
         headers: {
-          "Content-Type": "application/json",
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
-        body: JSON.stringify({ title, content }),
+        body: formData,
       });
 
       const data = await res.json();
@@ -75,6 +78,7 @@ const EditPost = () => {
           rows="8"
           required
         />
+
 
         <button type="submit">Actualizar Post</button>
         <button type="button" onClick={() => navigate("/profile")}>

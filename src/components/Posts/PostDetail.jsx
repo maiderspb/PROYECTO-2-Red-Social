@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchPostById } from '../../redux/post/postSlice.js';
+import { fetchPostById } from '../../redux/post/thunks';
 import '../../assets/styles/PostDetail.scss';
 import AddComment from '../Comments/AddComment.jsx';
-import { likeComment } from '../../redux/post/postSlice';
+import { likeComment } from '../../redux/post/thunks';
 
 const PostDetail = () => {
   const { postId } = useParams();
@@ -35,8 +35,8 @@ return (
     <div><i><b>Autor:</b> {comment.user?.username || 'Anónimo'}</i></div>
     <div>{comment.text}</div>
     <div className="comment-actions">
-   <button onClick={() => handleLike(comment._id)}>
-  ❤️ Like ({comment.likes ?? 0})
+  <button onClick={() => handleLike(comment._id)}>
+  ❤️ Like ({comment.likes?.length ?? 0})
 </button>
     </div>
   </li>

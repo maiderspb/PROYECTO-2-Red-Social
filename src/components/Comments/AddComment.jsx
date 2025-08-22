@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addComment } from '../../redux/post/postSlice.js';
+import { addComment } from '../../redux/post/thunks';
 import '../../assets/styles/AddComment.scss';;
 import { useNavigate } from 'react-router-dom';
 

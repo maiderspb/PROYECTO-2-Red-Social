@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { login } from "../../redux/auth/authSlice";
+import { login } from "../../redux/auth/slices/authSlice.js";
 import "../../assets/styles/Login.scss";
 import { notification } from "antd";
 

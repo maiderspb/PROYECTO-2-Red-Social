@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addPost } from '../../redux/post/postSlice.js';
+import { addPost } from '../../redux/post/thunks';
 import { useNavigate } from 'react-router-dom';
 import '../../assets/styles/AddPost.scss';
 

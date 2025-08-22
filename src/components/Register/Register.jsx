@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { register } from '../../redux/auth/authSlice.js';
+import { register } from "../../redux/auth/slices/authSlice.js";
 import { notification } from 'antd';
 import '../../assets/styles/Register.scss';
 
@@ -141,5 +141,3 @@ const Register = () => {
 };
 
 export default Register;
-
-

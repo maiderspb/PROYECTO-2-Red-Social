@@ -9,7 +9,7 @@ import Footer from './components/Footer/Footer.jsx';
 import Posts from './components/Posts/Posts.jsx';
 import AddPost from './components/Posts/AddPost.jsx';
 import PostDetail from './components/Posts/PostDetail.jsx';
-import Profile from './components/Profile/profile.jsx';
+import Profile from './components/Profile/Profile.jsx';
 import EditPost from "./components/Posts/EditPost.jsx"; 
 import EditComment from './components/Comments/EditComment.jsx';
 

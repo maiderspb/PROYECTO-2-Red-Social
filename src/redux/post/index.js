@@ -1,0 +1,10 @@
+export * from "./thunks/fetchPosts";
+export * from "./thunks/fetchPostById";
+export * from "./thunks/addPost";
+export * from "./thunks/addComment";
+export * from "./thunks/likeComment";
+export * from "./thunks/unlikePost";
+export * from "./thunks/deletePost";
+export * from "./thunks/fetchLikedPostsByUser";
+export * from "./thunks/updateUserAsync";
+export { default as postReducer } from "./slices/postSlice";
