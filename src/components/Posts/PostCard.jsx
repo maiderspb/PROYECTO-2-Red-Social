@@ -51,9 +51,14 @@ const handleLikeToggle = async () => {
     <div className="post-card">
       <h3>{post.title}</h3>
 
-      {post.image && (
-  <img src="/uploads/Patagonia.jpg" alt="Patagonia" />
-      )}
+{post.image && (
+  <img
+    src={`http://localhost:5000/uploads/${post.image}`}
+    alt={post.title}
+    className="post-image"
+    style={{ maxWidth: "300px", maxHeight: "200px", objectFit: "cover", borderRadius: "10px" }}
+  />
+)}
 
       <p>{post.content.slice(0, 150)}...</p>
       <p><em>Autor: {post.authorName || 'Desconocido'}</em></p>

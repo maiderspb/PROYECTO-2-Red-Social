@@ -8,6 +8,7 @@ const EditPost = () => {
   const [editingPost, setEditingPost] = useState(null);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+   const [image, setImage] = useState(null);
 
   useEffect(() => {
     const post = JSON.parse(localStorage.getItem("editingPost"));
@@ -32,6 +33,8 @@ const EditPost = () => {
     const formData = new FormData();
 formData.append("title", title);
 formData.append("content", content);
+ if (image) {
+      formData.append("image", image);}
 try { 
 
       const res = await fetch(`/api/posts/${editingPost._id}`, {
@@ -77,6 +80,13 @@ try {
           onChange={(e) => setContent(e.target.value)}
           rows="8"
           required
+        />
+
+         <label>Imagen:</label>
+        <input
+          type="file"
+          accept="image/*"
+          onChange={(e) => setImage(e.target.files[0])}
         />
 
 
