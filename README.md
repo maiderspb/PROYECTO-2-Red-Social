@@ -90,3 +90,10 @@ El proyecto debe contener los siguientes componentes y vistas:
 ▶️ Ejecutar con npm start o yarn start.
 
 🌐 Abrir http://localhost:5173/home en el navegador.
+
+## 🌐 Despliegue
+
+La API está disponible en producción en el siguiente enlace:
+
+🔗 https://proyecto-2-red-social.vercel.app/login
+
