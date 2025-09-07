@@ -16,9 +16,11 @@ const UserComments = ({ user }) => {
     navigate(`/edit-comment/${comment._id}`);
   };
 
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
   const handleDeleteComment = async (commentId) => {
     try {
-      const res = await fetch(`/api/comments/${commentId}`, {
+      const res = await fetch(`${API_URL}/comments/${commentId}`,  {
         method: "DELETE",
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
