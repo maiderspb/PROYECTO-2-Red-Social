@@ -95,5 +95,5 @@ El proyecto debe contener los siguientes componentes y vistas:
 
 La API está disponible en producción en el siguiente enlace:
 
-🔗 https://proyecto-2-red-social.vercel.app/login
+🔗 https://proyecto-2-red-social-git-main-ms-projects-a3672b40.vercel.app/login
 
