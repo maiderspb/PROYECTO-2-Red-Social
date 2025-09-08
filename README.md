@@ -1,7 +1,7 @@
 # 🚀 Proyecto Red Social - Frontend
 
 ## 📚 Introducción
-En este proyecto se desarrolla una red social en la que los usuarios pueden registrarse, iniciar sesión y publicar contenido utilizando la API de la red social creada en el 2º proyecto de backend. 💻✨
+En este proyecto se desarrolla una red social en la que los usuarios pueden registrarse, iniciar sesión y publicar contenido utilizando la API de la red social creada en el 2º proyecto de backend. 💻✨https://github.com/maiderspb/PROYECTO-2---social-media
 
 ##  ✅ Requisitos
 
